@@ -1,4 +1,4 @@
-FROM ubuntu:disco
+FROM debian:buster-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -10,5 +10,4 @@ RUN apt update && \
       libmetis-dev libscotchparmetis-dev && \
     rm -rf /var/lib/apt/lists/*
 RUN find / -name *metis*
-
 
