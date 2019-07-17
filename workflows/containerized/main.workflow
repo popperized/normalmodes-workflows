@@ -4,6 +4,7 @@ workflow "containers" {
 
 action "build" {
   uses = "./workflows/containerized/actions/normalmodes"
+  runs = "./workflows/containerized/scripts/build.sh"
   env = {
     PEVSL_MAKEFILE_IN = "./workflows/containerized/makeconf/pEVSL_openblas.in"
     NORMALMODES_MAKEFILE_IN = "./workflows/containerized/makeconf/NormalModes_openblas.in"
