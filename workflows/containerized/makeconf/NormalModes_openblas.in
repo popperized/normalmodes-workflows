@@ -1,5 +1,3 @@
-PARMETIS      = /parmetis-4.0.3
-
 EVSL_DIR      = $(GITHUB_WORKSPACE)/submodules/pEVSL
 LIBEVSL       = -L$(EVSL_DIR) -lpevsl
 iterobj       = $(EVSL_DIR)/EXTERNAL/ITERSOL/chebiter.o
@@ -15,14 +13,14 @@ LINKS     = -lopenblas -lpthread
 #LINKS     := /home/shi126/solver/OpenBLAS/libopenblas.a
 
 
-IMETIS = -I$(PARMETIS)/build/Linux-x86_64/metis/include
-IPARMETIS = -I$(PARMETIS)/include
+IMETIS = -I/usr/include
+IPARMETIS = -I/usr/include/parmetis
 
 #------------------------------------------------------------------
 # links of metis
 #
-LMETIS    = -L$(PARMETIS)/build/Linux-x86_64/libmetis -lmetis
-LParMETIS = -L$(PARMETIS)/build/Linux-x86_64/libparmetis -lparmetis
+LMETIS    = -L/usr/lib/x86_64-linux-gnu/libmetis.so -lmetis
+LParMETIS = -L/usr/lib/x86_64-linux-gnu/libparmetis.so -lparmetis
 LORDERINGS = $(LParMETIS) $(LMETIS) -lpthread
 OPTL     =  -O3 -fopenmp
 
