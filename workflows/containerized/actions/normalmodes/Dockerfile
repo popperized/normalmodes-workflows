@@ -9,5 +9,4 @@ RUN apt update && \
       libopenmpi-dev libopenblas-dev \
       libmetis-dev libscotchparmetis-dev && \
     rm -rf /var/lib/apt/lists/*
-RUN find / -name *metis*
 
