@@ -5,7 +5,7 @@ iterobj       = $(EVSL_DIR)/EXTERNAL/ITERSOL/chebiter.o
 
 #  The platform identifier to suffix to the end of library names
 #
-PLAT          = stampede2
+PLAT          = popper
 
 # lapack and blas
 #MKLPATH   =  /apps/rhel6/intel/composer_xe_2013.3.163/mkl/lib/intel64
