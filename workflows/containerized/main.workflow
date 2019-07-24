@@ -24,4 +24,8 @@ action "run" {
   needs = "test"
   uses = "./workflows/containerized/actions/normalmodes"
   runs = "./workflows/containerized/scripts/run.sh"
+  env = {
+    OMP_NUM_THREADS = "2"
+    MPI_NUM_PROCESSES = "1"
+  }
 }
