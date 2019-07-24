@@ -20,7 +20,7 @@ IPARMETIS = -I/usr/include/parmetis
 # links of metis
 #
 LMETIS    = -L/usr/lib/x86_64-linux-gnu/libmetis.so -lmetis
-LParMETIS = -L/usr/lib/x86_64-linux-gnu/libparmetis.so -lparmetis
+LParMETIS = -L/usr/lib/libparmetis.so -lparmetis
 LORDERINGS = $(LParMETIS) $(LMETIS) -lpthread
 OPTL     =  -O3 -fopenmp
 

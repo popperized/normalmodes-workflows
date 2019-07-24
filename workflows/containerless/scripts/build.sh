@@ -11,11 +11,11 @@ if [ ! -d "./submodules/NormalModes" ]; then
 fi
 
 if [ -z "$PEVSL_MAKEFILE_IN" ]; then
-  echo "Expecting PEVSL_MAKEFILE_IN folder"
+  echo "Expecting PEVSL_MAKEFILE_IN file"
   exit 1
 fi
 if [ -z "$NORMALMODES_MAKEFILE_IN" ]; then
-  echo "Expecting NORMALMODES_MAKEFILE_IN folder"
+  echo "Expecting NORMALMODES_MAKEFILE_IN file"
   exit 1
 fi
 

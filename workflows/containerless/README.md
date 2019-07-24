@@ -21,10 +21,9 @@ using the Model from [demos](./../submodules/NormalModes/demos)
 
 ## Execution
 
-This workflow runs in a container runtime ([Docker][docker],
-[Singularity][singularity], etc.) and can be executed with the [Popper
-CLI tool][popper]. For a version of this workflow in a
-non-containerized environment, see [here](../containerless). The
+This workflow runs on the host machine environment and can be executed with the [Popper
+CLI tool][popper]. For a version of this workflow in a containerized
+environment, see [here](../containerized). The
 following executes this workflow:
 
 ```bash
