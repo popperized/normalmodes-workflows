@@ -1,4 +1,5 @@
-EVSL_DIR      = $(GITHUB_WORKSPACE)/submodules/pEVSL
+GH_WS         = $(HOME)/normalmodes-workflows
+EVSL_DIR      = $(GH_WS)/submodules/pEVSL
 LIBEVSL       = -L$(EVSL_DIR) -lpevsl
 iterobj       = $(EVSL_DIR)/EXTERNAL/ITERSOL/chebiter.o
 
