@@ -8,7 +8,7 @@ action "build" {
   env = {
     PEVSL_MAKEFILE_IN = "./workflows/containerized/makeconf/pEVSL_openblas.in"
     NORMALMODES_MAKEFILE_IN = "./workflows/containerized/makeconf/NormalModes_openblas.in"
-    NUM_BUILD_JOBS = "4"
+    NUM_BUILD_JOBS = "1"
   }
 }
 
