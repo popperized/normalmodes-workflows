@@ -8,6 +8,7 @@ action "build" {
   env = {
     PEVSL_MAKEFILE_IN = "./workflows/containerized/makeconf/pEVSL_openblas.in"
     NORMALMODES_MAKEFILE_IN = "./workflows/containerized/makeconf/NormalModes_openblas.in"
+    NUM_BUILD_JOBS = "4"
   }
 }
 
@@ -25,7 +26,6 @@ action "run" {
   uses = "./workflows/containerized/actions/normalmodes"
   runs = "./workflows/containerized/scripts/run.sh"
   env = {
-    OMP_NUM_THREADS = "2"
     MPI_NUM_PROCESSES = "1"
   }
 }

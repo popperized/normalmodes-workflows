@@ -12,20 +12,16 @@ set -e
 #SBATCH -A TG-EAR170019
 
 
-if [ -z "$OMP_NUM_THREADS" ]; then
-  echo "No OMP_NUM_THREADS variable defined"
-  exit 1
-fi
 if [ -z "$MPI_NUM_PROCESSES" ]; then
   echo "No MPI_NUM_ROCESSES variable defined"
   exit
 fi
 
-NMBIN="./submodules/NormalModes/bin/plmvcg_popper.out"
-cd ./submodules/NormalModes/demos
+NMBIN="$GITHUB_WORKSPACE/submodules/NormalModes/bin/plmvcg_popper.out"
+cd "$GITHUB_WORKSPACE/submodules/NormalModes/demos"
 
 mpirun \
   --allow-run-as-root \
-  -np "$NUM_MPI_PROCESSES" \
+  -np "$MPI_NUM_PROCESSES" \
   --mca btl_base_warn_component_unused 0 \
   "$NMBIN"
