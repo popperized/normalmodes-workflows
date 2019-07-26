@@ -1,5 +1,5 @@
 EVSL_DIR      = $(GITHUB_WORKSPACE)/submodules/pEVSL
-MKLROOT = /opt/intel/mkl
+MKLROOT       = /opt/intel/mkl
 LIBEVSL       = -L$(EVSL_DIR) -lpevsl
 iterobj       = $(EVSL_DIR)/EXTERNAL/ITERSOL/chebiter.o
 
@@ -14,7 +14,6 @@ LINKS     = -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_intel_lp64.a \
            ${MKLROOT}/lib/intel64/libmkl_gnu_thread.a ${MKLROOT}/lib/intel64/libmkl_core.a \
            ${MKLROOT}/lib/intel64/libmkl_blacs_intelmpi_lp64.a -Wl,--end-group -lgomp -lpthread -lm -ldl
 
-#LINKS     := /home/shi126/solver/OpenBLAS/libopenblas.a
 
 
 IMETIS = -I/usr/include
