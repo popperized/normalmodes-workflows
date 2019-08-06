@@ -1,5 +1,5 @@
 workflow "containers" {
-  resolves = "validate"
+  resolves = "generate vtk"
 }
 
 action "build" {
@@ -45,3 +45,10 @@ action "validate" {
   }
 }
 
+
+
+action "generate vtk" {
+  needs = "run"
+  uses = "docker://openmicroscopy/octave"
+  runs = "./workflows/containerized/scripts/post-run.sh"
+}
