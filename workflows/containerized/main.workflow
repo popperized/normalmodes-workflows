@@ -1,5 +1,5 @@
 workflow "containers" {
-  resolves = "run"
+  resolves = "generate vtk"
 }
 
 action "build" {
@@ -34,4 +34,11 @@ action "run" {
   env = {
     MPI_NUM_PROCESSES = "1"
   }
+}
+
+
+action "generate vtk" {
+  needs = "run"
+  uses = "docker://openmicroscopy/octave"
+  runs = "./workflows/containerized/scripts/post-run.sh"
 }
