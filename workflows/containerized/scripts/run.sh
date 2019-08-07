@@ -14,8 +14,19 @@ set -e
 
 if [ -z "$MPI_NUM_PROCESSES" ]; then
   echo "No MPI_NUM_ROCESSES variable defined"
-  exit
+  exit 1
 fi
+source ./workflows/containerized/scripts/set-env.sh
+
+cat <<EOF >  "$GITHUB_WORKSPACE/submodules/NormalModes/demos/global_conf"
+JOB         = $NM_JOB
+basename    = $BASE_NAME
+inputdir    = $INPUT_DIR
+outputdir   = $OUTPUT_DIR
+lowfreq      = 0.2 # mHz
+upfreq       = 2.0 # mHz
+pOrder       = $NM_P_ORDER
+EOF
 
 NMBIN="$GITHUB_WORKSPACE/submodules/NormalModes/bin/plmvcg_popper.out"
 cd "$GITHUB_WORKSPACE/submodules/NormalModes/demos"

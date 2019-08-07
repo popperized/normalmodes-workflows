@@ -1,14 +1,14 @@
 % visualize the eigenfunctions
 clear all;clc;
 
-addpath([pwd,'/workflows/containerized/scripts/matlab/modelbuilder']);
+addpath([pwd,'/submodules/PlanetaryModels/modelbuilder']);
 
-fmesh  = [pwd,'/submodules/NormalModes/demos/models/input/CONST3k/'];
-fout   = [pwd,'/submodules/NormalModes/demos/models/output/CONST3k/'];
-fbase  = 'CONST_1L_3k.1';
+fmesh  = getenv('INPUT_DIR')
+fout   = getenv('OUTPUT_DIR')
+fbase  = getenv('BASE_NAME')
 fdtail = '0.200000003_2.00000000';
 
-JOB = 1; pOrder = 1; nproc = 1; nth = 7;
+JOB = getenv('NM_JOB'); pOrder = getenv('NM_P_ORDER'); nproc = getenv('NM_NPROC'); nth = getenv('NM_NTH');
 Radial = 6.371E3;
 
 
@@ -21,7 +21,7 @@ fvtk = [fout,'vtk/',fbase,'_JOB',int2str(JOB),'_pod',int2str(pOrder),...
 
 fvlist = [fout,fbase,'_pod',int2str(pOrder),...
     '_np',int2str(nproc),'_vlist.dat'];
-
+disp(fvlist)
 [pxyz,tet,~,~,~] = read_mesh3d(fmeshorg);
 
 nvtx = size(pxyz,1);
