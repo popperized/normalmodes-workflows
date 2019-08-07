@@ -57,3 +57,10 @@ action "generate vtk" {
     NM_PLANETARY_MODEL = "CONST3k"
   }
 }
+
+
+action "generate vtk" {
+  needs = "run"
+  uses = "docker://openmicroscopy/octave"
+  runs = "./workflows/containerized/scripts/post-run.sh"
+}
