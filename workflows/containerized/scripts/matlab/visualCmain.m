@@ -21,7 +21,7 @@ fvtk = [fout,'vtk/',fbase,'_JOB',int2str(JOB),'_pod',int2str(pOrder),...
 
 fvlist = [fout,fbase,'_pod',int2str(pOrder),...
     '_np',int2str(nproc),'_vlist.dat'];
-disp(fvlist)
+
 [pxyz,tet,~,~,~] = read_mesh3d(fmeshorg);
 
 nvtx = size(pxyz,1);
