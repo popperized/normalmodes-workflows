@@ -96,3 +96,5 @@ on your system by using the [Docker ParaView Web][pvw-docker].
 [singularity]: https://github.com/sylabs/singularity
 [demos]: https://github.com/js1019/NormalModes/tree/master/demos
 [nmgh]: https://github.com/js1019/NormalModes
+[pvw-docker]: https://github.com/ivotron/docker-paraviewweb
+[paraview]: http://kitware.github.io/paraviewweb/
