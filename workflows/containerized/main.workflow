@@ -47,7 +47,7 @@ action "validate" {
 
 action "generate vtk" {
   needs = "validate"
-  uses = "docker://popperized/octave@4e9c652"
+  uses = "docker://popperized/octave:4.4"
   runs = "./workflows/containerized/scripts/post-run.sh"
   env = {
     NM_P_ORDER = "1"  # order of polynomial basis (1 or 2)
