@@ -33,9 +33,9 @@ action "run" {
   runs = "./workflows/containerized/scripts/run.sh"
   env = {
     MPI_NUM_PROCESSES = "1"
-    NM_P_ORDER = "1"  # order of polynomial basis (1 or 2)
-    NM_JOB = "1"
-    NM_PLANETARY_MODEL = "CONST3k"
+
+    # input parameters defined in global_conf file of this directory
+    INPUT_DIR = "submodules/NormalModes/demos/"
   }
 }
 
@@ -45,15 +45,9 @@ action "validate" {
   runs = "./workflows/containerized/scripts/validate.sh"
 }
 
+# input parameters defined in visualCmain.m file
 action "generate vtk" {
   needs = "validate"
   uses = "docker://popperized/octave:4.4"
-  runs = "./workflows/containerized/scripts/post-run.sh"
-  env = {
-    NM_P_ORDER = "1"  # order of polynomial basis (1 or 2)
-    NM_JOB = "1"
-    NM_NPROC = "1"
-    NM_NTH = "7"
-    NM_PLANETARY_MODEL = "CONST3k"
-  }
+  args = "./workflows/containerized/scripts/visualCmain.m"
 }

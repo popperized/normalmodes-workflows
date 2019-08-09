@@ -3,14 +3,15 @@ clear all;clc;
 
 addpath([pwd,'/submodules/PlanetaryModels/modelbuilder']);
 
-fmesh  = getenv('INPUT_DIR')
-fout   = getenv('OUTPUT_DIR')
-fbase  = getenv('BASE_NAME')
+fmesh  = [pwd,'/submodules/NormalModes/demos/models/input/CONST3k/'];
+fout   = [pwd,'/submodules/NormalModes/demos/models/output/CONST3k/'];
+fbase  = 'CONST_1L_3k.1';
 fdtail = '0.200000003_2.00000000';
-
-JOB = getenv('NM_JOB'); pOrder = getenv('NM_P_ORDER'); nproc = getenv('NM_NPROC'); nth = getenv('NM_NTH');
+JOB = 1;
+pOrder = 1;
+nproc = 1;
+nth = 7;
 Radial = 6.371E3;
-
 
 fmeshorg = [fmesh,fbase];
 fdat =  [fout,fbase,'_JOB',int2str(JOB),'_pod',int2str(pOrder),...
