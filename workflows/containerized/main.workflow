@@ -47,7 +47,7 @@ action "validate" {
 
 action "generate vtk" {
   needs = "validate"
-  uses = "ivotron/docker-octave@docker-octave"
+  uses = "docker://popperized/octave@4e9c652"
   runs = "./workflows/containerized/scripts/post-run.sh"
   env = {
     NM_P_ORDER = "1"  # order of polynomial basis (1 or 2)
@@ -57,4 +57,3 @@ action "generate vtk" {
     NM_PLANETARY_MODEL = "CONST3k"
   }
 }
-
