@@ -1,0 +1,28 @@
+version: 1
+steps:
+- id: build
+  uses: ./workflows/containerized/actions/normalmodes
+  runs: ./workflows/containerized/scripts/build.sh
+  env:
+    PEVSL_MAKEFILE_IN: ./workflows/containerized/makeconf/pEVSL_mkl.in
+    NORMALMODES_MAKEFILE_IN: ./workflows/containerized/makeconf/NormalModes_mkl.in
+    NUM_BUILD_JOBS: 1
+
+- id: test
+  uses: ./workflows/containerized/actions/normalmodes
+  runs: ./workflows/containerized/scripts/test.sh
+
+- id: run
+  uses: ./workflows/containerized/actions/normalmodes
+  runs: ./workflows/containerized/scripts/run.sh
+  env:
+    MPI_NUM_PROCESSES: 1
+    INPUT_DIR: submodules/NormalModes/demos/
+
+- id: validate
+  uses: popperized/bin/sh@master
+  runs: ./workflows/containerized/scripts/validate.sh
+
+- id: generate vtk
+  uses: docker://popperized/octave:4.4
+  args: ./workflows/containerized/scripts/visualCmain.m
